@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+
+<body>
+    <div id="nav">
+
+        <form action="#">
+            <i class="fa-solid fa-pencil" onclick="getid('pencil')" id="pencil"></i>
+            <i class="fa-solid fa-circle" onclick="getid('circle')" id="circle"></i>
+            <i class="fa-solid fa-square" onclick="getid('square')" id="square"></i>
+            <input type="color" name="color" id="color">
+            <input type="range" name="size" id="size" value="2">
+        </form>
+        <div id="forimage">
+            <button onclick="forReset()">Reset</button>
+            <button onclick="forSave()">Save</button>
+        </div>
+    </div>
+
+    <canvas id="myCanvas" width="800px" height="500px">
+    </canvas>
+    <script src="index.js"></script>
+
+
+</body>
+
+</html>
