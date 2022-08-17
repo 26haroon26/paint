@@ -17,20 +17,18 @@
             <i id="pencil" onclick="act('pencil')" class="fa-solid fa-pencil"></i>
             <i id="square" onclick="act('square')" class="fa-solid fa-square"></i>
             <i id="circle" onclick="act('circle')" class="fa-solid fa-circle"></i>
-            <label for="color">Color</label>
             <input type="color" name="color" id="color" >
-            <label for="size">Size</label>
             <input type="range" name="size" id="size" value="2">
         </form>
         <div id="forimage">
             <button onclick="forReset()">Reset</button>
             <button onclick="forSave()">Save</button>
-            <button onclick="forUndo()">Undo</button>
+            <!-- <button onclick="forUndo()">Undo</button> -->
 
         </div>
     </div>
     
-    <canvas id="myCanvas" width="600px" height="600px">
+    <canvas id="myCanvas">
     </canvas>
     <script src="index.js"></script>
 

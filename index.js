@@ -6,12 +6,25 @@ let strDataURI = canva.toDataURL();
 let isMouseDown = false;
 let squareStartx, squareStarty, squareEndx, squareEndy,
     circleStartx, circleStarty, circleEndx, circleEndy;
+    canva.width = Number(window.innerWidth) - 18;
+    canva.height = Number(window.innerHeight) - 51.5;
+// let undoArray = [];
+// let index = -1;
+// undoArray.push(ctx.getImageData(0, 0, canva.width, canva.height));
+
 
 // function forUndo() {
-//     ctx.clearRect(0, 0, canva.width, canva.height);
-//     let img = new Image();
-//     img.src = strDataURI;
-//     ctx.drawImage(img, 0, 0);
+//     if (index === 0) {
+//         clearcanvas();
+//     } else if (index < 0) {
+//         index = -1;
+//     }
+//     else {
+//         index -= 1;
+//         undoArray.pop();
+//         ctx.putImageData(undoArray[index], 0, 0)
+//     }
+//     console.log(index);
 // }
 
 
@@ -19,10 +32,17 @@ let squareStartx, squareStarty, squareEndx, squareEndy,
 
 let pencilMouseDown = (event) => {
     isMouseDown = true;
+    ctx.beginPath();
+
 }
 let pencilMouseUp = (event) => {
+
     ctx.beginPath();
     isMouseDown = false;
+    // undoArray.push(ctx.getImageData(0, 0, canva.width, canva.height));
+    // index += 1;
+    // console.log(index);
+
 }
 let pencilMouseMove = (event) => {
     if (isMouseDown) {
@@ -30,7 +50,7 @@ let pencilMouseMove = (event) => {
         ctx.lineWidth = size.value;
         ctx.lineTo(event.offsetX, event.offsetY);
         ctx.stroke();
-        // ctx.beginPath();
+        ctx.beginPath();
         ctx.moveTo(event.offsetX, event.offsetY)
         ctx.strokeStyle = color.value;
     }
@@ -41,7 +61,6 @@ let circleMouseDown = (event) => {
     circleStarty = event.offsetY;
     // client = event.clientY;
     isMouseDown = true;
-    console.log("eventDown ", event);
 }
 // let circleMouseMove = (event) => {
 //     if (isMouseDown) {
@@ -62,9 +81,7 @@ let circleMouseUp = (event) => {
     circleEndx = event.offsetX;
     circleEndy = event.offsetY;
     isMouseDown = false;
-    let radius = Math.abs(circleEndx - circleStartx)/2;
-    console.log("eventUp ", event);
-    console.log("radius ", radius);
+    let radius = Math.abs(circleEndx - circleStartx) / 2;
     if (circleEndx === circleStartx && circleEndy === circleEndy) {
         ctx.beginPath();
         ctx.arc(0, 0, 0, 0, 0);
@@ -78,7 +95,6 @@ let circleMouseUp = (event) => {
     //     ctx.lineWidth = size.value;
     //     ctx.arc(circleStartx, circleStarty, radiusr, 0, 2 * Math.PI);
     //     ctx.stroke();
-    //     console.log("radiusr", radiusr);
     // }
     else {
         ctx.beginPath();
@@ -96,7 +112,6 @@ let squareMouseDown = (event) => {
     squareStartx = event.offsetX;
     squareStarty = event.offsetY;
     isMouseDown = true;
-    console.log(event);
 };
 
 let squareMouseUp = (event) => {

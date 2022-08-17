@@ -1,23 +1,24 @@
 canvas {
     border: 1px solid black;
 }
-#nav{
+#flex{
     display:flex; 
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 }
 #forimage{
     display:flex;
+    height: 30px;
     justify-content: space-around;
     align-items: center;
-    /* border: 1px solid black; */
-    width: 20%;
+    width: 30%;
 }form{
     display:flex;
-    justify-content: space-evenly;
+    height: 30px;
+    justify-content: space-around;
     align-items: center;
-    /* border: 1px solid black; */
-    width: 40%;
+    width: 60%;
 
 }#circle
 {
@@ -27,4 +28,8 @@ canvas {
 }#square{
     color: white;
     border: 2px solid black;
+}#circle:hover,#square:hover{
+    border: 4px solid blue;
+}#pencil:hover{
+    color: blue;
 }
